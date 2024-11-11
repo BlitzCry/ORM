@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .  # This should be the directory where Dockerfile and package.json are located
+    volumes:
+      - .:/app
+      - ./database.sqlite:/app/database.sqlite
+    ports:
+      - "3000:3000"
