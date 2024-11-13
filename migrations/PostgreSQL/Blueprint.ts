@@ -12,6 +12,4 @@ export default class Blueprint {
     timestamps(): void {
         this.columns.push(`created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP`);
     }
-
-
 }
