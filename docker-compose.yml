@@ -3,9 +3,25 @@ version: '3.8'
 services:
   app:
     build:
-      context: .  # This should be the directory where Dockerfile and package.json are located
-    volumes:
-      - .:/app
-      - ./database.sqlite:/app/database.sqlite
+      context: .  # Directory with Dockerfile and app code
+    environment:
+      - DATABASE_URL=postgres://user:password@postgres:5432/mydatabase
+    depends_on:
+      - postgres
     ports:
-      - "3000:3000"
+      - "3000:3000"  # Expose app port if needed
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: mydatabase        # Name of the default database
+      POSTGRES_USER: user            # Database user
+      POSTGRES_PASSWORD: password    # Database password
+    ports:
+      - "5432:5432"                  # Expose PostgreSQL port
+    volumes:
+      - pgdata:/var/lib/postgresql/data # Volume to persist database data
+
+volumes:
+  pgdata:
+    driver: local  # Volume to persist data
