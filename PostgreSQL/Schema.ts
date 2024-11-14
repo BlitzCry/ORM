@@ -7,10 +7,10 @@ export default class Schema {
 
         callback(blueprint);
 
-        let columnsDefinition = blueprint.columns.join(", ");
+        // let columnsDefinition = blueprint.columns.join(", ");
 
-        const sql = `CREATE TABLE IF NOT EXISTS ${table} (${columnsDefinition})`;
+        // const sql = `CREATE TABLE IF NOT EXISTS ${table} (${columnsDefinition})`;
 
-        return sql;
+        // return sql;
     }
 }

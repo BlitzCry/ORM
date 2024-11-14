@@ -1,8 +1,8 @@
-import Schema from "../Schema.ts";
-import Blueprint from "../Blueprint.ts";
+import Schema from "../../Schema.ts";
+import Blueprint from "../../Blueprint.ts";
 
 export default class Flights {
-    public up() {
+    public static up() {
         return Schema.create('flights', (table: Blueprint) => {
             table.id();
             table.string('name');
