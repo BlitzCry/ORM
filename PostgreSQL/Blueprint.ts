@@ -1,5 +1,5 @@
 // @ts-ignore
-import ColumnDefinition from "@/Migrations/ColumnDefinition.ts";
+import ColumnDefinition from "@/PostgreSQL/ColumnDefinition.ts";
 
 export default class Blueprint {
     columns: object = {};
