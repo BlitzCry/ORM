@@ -1,5 +1,6 @@
 import Schema from "./Schema.ts";
-import Blueprint from "./Blueprint.ts";
+//@ts-ignore
+import Blueprint from "@/Schema/Blueprint.ts";
 
 export default class Flights {
     public static up() {

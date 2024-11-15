@@ -5,11 +5,11 @@ export default class Blueprint {
     columns: object = {};
 
     string(name: string, length: number = 256): ColumnDefinition {
-        return this.addColumn('VARCHAR', name, { length });
+        return this.addColumn('varchar', name, { length });
     }
 
     id(name: string = "id"): ColumnDefinition {
-        return this.addColumn('SERIAL', name);
+        return this.addColumn('integer', name).primary();
     }
 
     integer(name: string, autoIncrement: boolean = false, unsigned: boolean = false) {
@@ -21,8 +21,8 @@ export default class Blueprint {
     }
 
     timestamps(): void {
-        this.addColumn('TIMESTAMP', 'created_at').default('CURRENT_TIMESTAMP');
-        this.addColumn('TIMESTAMP', 'updated_at').default('CURRENT_TIMESTAMP');
+        this.addColumn('timestamp', 'created_at').default('CURRENT_TIMESTAMP');
+        this.addColumn('timestamp', 'updated_at').default('CURRENT_TIMESTAMP');
     }
 
     char(name: string, length: number = 64): ColumnDefinition {

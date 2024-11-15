@@ -5,18 +5,16 @@
 
 
 // @ts-ignore
-import Schema from "@/PostgreSQL/Schema.ts";
+import Builder from "@/Schema/Builder.ts";
 // @ts-ignore
-import Blueprint from "@/PostgreSQL/Blueprint.ts";
+import Blueprint from "@/Schema/Blueprint.ts";
 
-Schema.create('flights', (table: Blueprint) => {
+Builder.create('flights', (table: Blueprint) => {
   table.id();
   table.string('name').primary();
   table.string('airline').default("Wizz Air");
   table.timestamps();
   table.char("gdpr_accepted", 2).default('n').nullable().primary();
-
-  console.log(table);
 });
 
 
