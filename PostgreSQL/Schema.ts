@@ -1,4 +1,5 @@
-import Blueprint from "./Blueprint.ts";
+// @ts-ignore
+import Blueprint from "@/PostgreSQL/Blueprint.ts";
 
 export default class Schema {
 

@@ -1,4 +1,5 @@
-import ColumnDefinition from "../Migrations/ColumnDefinition.ts";
+// @ts-ignore
+import ColumnDefinition from "@/Migrations/ColumnDefinition.ts";
 
 export default class Blueprint {
     columns: object = {};
@@ -9,6 +10,14 @@ export default class Blueprint {
 
     id(name: string = "id"): ColumnDefinition {
         return this.addColumn('SERIAL', name);
+    }
+
+    integer(name: string, autoIncrement: boolean = false, unsigned: boolean = false) {
+        return this.addColumn("integer", name, { autoIncrement, unsigned });
+    }
+
+    tinyInteger(name: string, autoIncrement: boolean = false, unsigned: boolean = false) {
+        return this.addColumn("tinyInteger", name, { autoIncrement, unsigned });
     }
 
     timestamps(): void {
